@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,7 +20,7 @@
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.258"
@@ -29,16 +29,19 @@
         app:layout_constraintVertical_bias="0.891" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
+        android:layout_marginTop="533dp"
         android:layout_marginEnd="37dp"
         android:layout_marginRight="37dp"
+        android:layout_marginBottom="94dp"
         android:onClick="message"
-        android:text="Button"
+        android:text="send"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        tools:layout_editor_absoluteY="533dp" />
+        app:layout_constraintStart_toEndOf="@+id/message_text"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
