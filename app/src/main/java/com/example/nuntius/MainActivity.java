@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public LinearLayoutManager linearLayoutManager;
     public ConvoAdapter convoAdapter = new ConvoAdapter(Conversation);
     public RecyclerView recyclerView;
-    public static final String MESSAGE = "MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +31,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        displayConversation();
     }
 
     public void message(View view){
         TextView textView = findViewById(R.id.message_text);
         String message = textView.toString();
 
+        Conversation.add(message);
+        convoAdapter.notifyDataSetChanged();
     }
+
+    public void displayConversation(){
+        recyclerView = (RecyclerView) findViewById(R.id.Recycler_conversation);
+        recyclerView.setHasFixedSize(true);
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(convoAdapter);
+    }
+
 
 }
